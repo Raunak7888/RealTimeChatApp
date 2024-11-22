@@ -1,0 +1,482 @@
+/* index.css */
+
+/* CSS Reset for consistent styling across browsers */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #111b21; /* Main background color for the app */
+  color: #e9edef; /* Default text color */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+/* Global link styles */
+a {
+  color: #4dabf7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #82caff;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111b21;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2a3942;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #405058;
+}
+
+/* Image defaults */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Heading and paragraph margins */
+h1, h2, h3, h4, h5, h6 {
+  color: #e9edef;
+  margin-bottom: 0.5em;
+}
+
+input{
+  background-color: #111b21;
+  color: white !important;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Button Reset */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+a:focus {
+  outline: 3px solid #4dabf7;
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+/* Container padding for main app sections */
+.container {
+  padding: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    font-size: 90%;
+  }
+  .container {
+    padding: 0.5rem;
+  }
+}
+
+/* ok.css */
+
+/* Wrapper for sidebar and chat area */
+.chat-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  background-color: #111b21;
+}
+
+/* Sidebar (Chat list) */
+.sidebar {
+  width: 25%; /* Adjust the width as needed */
+  background-color: #202c33;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #333d47;
+  overflow-y: auto;
+}
+
+/* Chat area where messages are displayed */
+.chat-area {
+  width: 100%; /* Takes up remaining width */
+  height: 100vh;
+  background-color: #0b141a;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chat-header{
+  background-color: #202c33;
+  padding-left: 3%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin: 0%;
+}
+
+.chat-contact-name{
+  font-size: 1.5rem;
+  color: white;
+
+}
+
+.chat-status{
+  font-size: 0.7rem;
+}
+
+
+/* Message display area */
+.message-display {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  color: #e9edef;
+  background-color: #1f262a;
+}
+
+/* Input area */
+.input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #333d47;
+  background-color: #2a3942;
+}
+
+.message-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #111b21;
+  color: white;
+  outline: none;
+}
+
+.send-button {
+  background-color: #005c4b;
+  border: none;
+  color: white;
+  width: 10vw;
+  padding: 10px 20px;
+  margin-top: 0%;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #007b5e;
+}
+
+/* chatsidebar.css */
+
+/* Sidebar container */
+.chat-sidebar {
+  height: 100vh;
+  background-color: #202c33;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #2a3942;
+  color: #e9edef;
+  overflow-y: auto;
+}
+
+/* Header section in sidebar (for user info or app title) */
+.chat-sidebar-header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #3b4a54;
+}
+
+/* Sidebar header text */
+.chat-sidebar-header h1 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #e9edef;
+}
+
+/* Search bar container */
+.chat-sidebar-search {
+  padding: 0.5rem;
+  background-color: #111b21;
+  border-bottom: 1px solid #2a3942;
+}
+
+/* Search input */
+.chat-sidebar-search input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 0px;
+  background-color: #2a3942;
+  color: #e9edef;
+}
+
+/* Chat list container */
+.chat-list {
+  flex-grow: 1;
+  overflow:hidden;
+}
+
+/* Individual chat item */
+.chat-list-item {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid #3b4a54;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-list-item:hover {
+  background-color: #2a3942;
+}
+
+/* Chat item avatar */
+.chat-list-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Chat item text */
+.chat-list-item .chat-info {
+  flex-grow: 1;
+}
+
+.chat-list-item .chat-info .chat-name {
+  font-weight: bold;
+  color: #e9edef;
+}
+
+.chat-list-item .chat-info .chat-message {
+  font-size: 0.9rem;
+  color: #8696a0;
+  margin-top: 2px;
+}
+
+/* Unread message count badge */
+.chat-list-item .unread-count {
+  background-color: #25d366;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Scrollbar styling for chat list */
+.chat-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-list::-webkit-scrollbar-track {
+  background: #202c33;
+}
+
+.chat-list::-webkit-scrollbar-thumb {
+  background-color: #2a3942;
+  border-radius: 4px;
+}
+
+.chat-list::-webkit-scrollbar-thumb:hover {
+  background-color: #3b4a54;
+}
+
+/* chatList.css */
+
+/* Overall chat list container */
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  height: 80vh;
+  overflow-y: scroll;
+  background-color: #122028;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+/* Individual chat item */
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for chat items */
+.chat-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Chat avatar */
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+/* Chat item details (name and last message) */
+.chat-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.message-sent, .message-received{
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  display:inline-block;
+}
+
+.message-sent{
+  background-color: #4caf50;
+  float: right;
+}
+
+
+
+.message-received{
+  background-color: #343737;
+  float: left;
+}
+
+
+/* Chat name */
+.chat-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Last message preview */
+.chat-last-message {
+  font-size: 14px;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Timestamp for the last message */
+.chat-timestamp {
+  font-size: 12px;
+  color: #bbb;
+  text-align: right;
+  margin-left: auto;
+}
+
+/* App.css */
+
+/* Root container for centering the content */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #111b21; /* App-wide background color */
+}
+
+/* Logo styling */
+.logo {
+  height: 6em;
+  padding: 1.5rem 0;
+  animation: spin 4s linear infinite;
+}
+
+/* Media queries for logo spin animation */
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    animation: none;
+  }
+}
+
+/* Spinning animation for logo */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Card component for showing additional information or user stats */
+.card {
+  background-color: #2a3942;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #e9edef;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+}
+
+/* Divider styling */
+hr {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 2rem 0;
+}

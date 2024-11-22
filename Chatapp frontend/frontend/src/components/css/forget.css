@@ -1,0 +1,70 @@
+/* Centering the container using flex on the body */
+.forgot-password-container {
+  position: absolute;
+    top: 30vh;
+    left: 40vw;
+  width: 300px;
+  padding: 20px;
+  background-color: #363333;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.forgot-password-container h2 {
+  color: #fff;
+}
+
+.forgot-password-container input[type="email"] {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 90%;
+  border: 1px solid #060606;
+  border-radius: 4px;
+}
+
+.forgot-password-container button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #353434;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.forgot-password-container button:hover {
+  background-color: #204c23;
+}
+
+.forgot-password-container .error {
+  color: red;
+  margin-top: 10px;
+}
+
+.forgot-password-container .success {
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+  .forgot-password-container {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .forgot-password-container {
+    width: 90%;
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .forgot-password-container {
+    width: 80%;
+    padding: 3px;
+  }
+}
