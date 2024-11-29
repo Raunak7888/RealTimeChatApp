@@ -344,7 +344,6 @@ a:focus {
   height: 80vh;
   overflow-y: scroll;
   background-color: #122028;
-  border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
 }

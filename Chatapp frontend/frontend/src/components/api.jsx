@@ -16,6 +16,24 @@ export const getUserData = async (userId) => {
     }
 };
 
+export const fetchMessagesUntilLastDay = async (senderId, receiverId,isGroup) => {
+
+    try {
+        const response = await axios.get('http://localhost:8080/auth/messages/user', {
+            params: {
+                senderId,
+                receiverId,
+                isGroup,
+            },
+        });
+        console.log(response);
+        return response.data; // Assuming the API returns an array of messages
+    } catch (error) {
+        console.error('Error fetching messages:', error);
+        throw error;
+    }
+};
+
 export const searchUsers = async (query) => {
     try {
         const response = await axios.get(`${API_BASE_URL}/Data/Search`, {

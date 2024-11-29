@@ -1,37 +1,48 @@
-// src/components/WebSocketService.js
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
 
 const WebSocketService = {
     client: null,
 
+    // Connect method
     connect(onConnected, onMessageReceived, token) {
-        const socket = new SockJS('http://localhost:8080/chat');
+        const socket = new SockJS('http://localhost:8080/chat');  // Your WebSocket endpoint
         this.client = Stomp.over(socket);
 
         const headers = token ? { Authorization: token } : {};
-        
+
         this.client.connect(headers, () => {
-            console.log('Connected to WebSocket');
-            onConnected();
-        }, (error) => console.error('Connection error:', error));
+            console.log('WebSocket connected');
+            onConnected();  // callback when connected
+        }, (error) => {
+            console.error('WebSocket connection error:', error);
+        });
     },
 
+    // Disconnect method
     disconnect() {
         if (this.client) {
             this.client.disconnect();
         }
     },
 
+    // Subscribe to a specific topic
     subscribe(destination, callback) {
         if (this.client) {
-            return this.client.subscribe(destination, (msg) => callback(JSON.parse(msg.body)));
+            return this.client.subscribe(destination, (msg) => {
+                callback(JSON.parse(msg.body));  // Process received messages
+            });
         }
     },
 
-    send(destination, message) {
+    // Send a message to a dynamic destination (like /send/message/{receiverId})
+    send(receiverId, message) {
         if (this.client && this.client.connected) {
-            this.client.send(destination, {}, JSON.stringify(message));
+            const destination = `/send/message/${receiverId}`;
+            console.log("Sending message to:", destination);
+            this.client.send(destination, {}, JSON.stringify(message));  // Send to the destination
+        } else {
+            console.error("WebSocket is not connected.");
         }
     },
 };

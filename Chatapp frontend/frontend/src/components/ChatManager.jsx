@@ -1,25 +1,55 @@
-// src/components/ChatManager.js
-
 const ChatManager = {
-    initializeChat(stompClient, onPublicMessageReceived, onPrivateMessageReceived, currentUser) {
-        // Subscribe to public messages
-        stompClient.subscribe('/topic/messages', (msg) => {
-            const message = JSON.parse(msg.body);
-            onPublicMessageReceived(message);
-        });
+  /**
+   * Sends a message to the backend
+   * @param {Object} stompClient - The Stomp client instance
+   * @param {Object} messageDTO - The message DTO containing senderId, receiverId, content, and isGroup flag
+   */
+  sendMessage(stompClient, messageDTO) {
+    console.log(messageDTO.receiverId, messageDTO.content, messageDTO.isGroup);
+    const destination = messageDTO.isGroup
+      ? `/app/group/message` // Group message endpoint
+      : `/app/send/message`; // Private message endpoint
+    console.log(destination + "Destination For Sending Message");
+    if (stompClient) {
+      stompClient.send(destination, {}, JSON.stringify(messageDTO));
+    }
+  },
 
-        // Subscribe to private messages for the current user
-        stompClient.subscribe(`/user/${currentUser}/queue/private`, (msg) => {
-            const message = JSON.parse(msg.body);
-            onPrivateMessageReceived(message);
-        });
-    },
+  /**
+   * Subscribes to messages for a specific recipient (group or private)
+   * @param {Object} stompClient - The Stomp client instance
+   * @param {String} recipientId - The recipient's user ID or group ID
+   * @param {Function} callback - Callback for processing received messages
+   * @param {Boolean} isGroup - Whether the subscription is for a group
+   */
+  subscribeToMessages(stompClient, currentUser, callback, isGroup,groupId) {
+    const destination = isGroup
+      ? `/topic/group/${groupId}` // Group subscription
+      : `/topic/user/${currentUser}/queue/private`; // Private subscription
 
-    sendMessage(stompClient, messageDTO) {
-        if (stompClient && messageDTO) {
-            stompClient.send('/app/send/message', {}, JSON.stringify(messageDTO));
-        }
-    },
+    if (stompClient) {
+      return stompClient.subscribe(destination, (msg) => {
+        callback(JSON.parse(msg.body)); // Process the received message
+      });
+    }
+  },
+
+  /**
+   * Subscribes to private messages or acknowledgments for the sender
+   * @param {Object} stompClient - The Stomp client instance
+   * @param {String} senderId - The sender's user ID
+   * @param {Function} callback - Callback for processing acknowledgments or private messages
+   */
+  subscribeToSender(stompClient, senderId, callback, isGroup) {
+    const destination = isGroup ? `/topic/group/${senderId}/ack` : `/topic/user/${senderId}/queue/ack`; // Subscription for sender-specific messages
+    console.log(destination + " Destination for Sender Subscriptions");
+
+    if (stompClient) {
+      return stompClient.subscribe(destination, (msg) => {
+        callback(JSON.parse(msg.body)); // Process the acknowledgment or private message
+      });
+    }
+  },
 };
 
 export default ChatManager;

@@ -9,7 +9,7 @@ import VerifyPage from './components/verify';
 import ResetPage from './components/reset';
 import './components/css/app.css';
 import Ok from './components/ok';
-import Demo from './components/Demo';
+import CreateGroup from './components/CreateGroup';
 
 function App() {
   return (
@@ -17,12 +17,13 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/home" element={<Ok/>} />
-        <Route path="/chat" element={<Demo/>} />
+        <Route path="/chat" element={<Ok/>} />
         <Route path="/forgot" element={<ForgotPasswordPage />} />
         <Route path="/verify" element={<VerifyPage />} />
         <Route path="/reset" element={<ResetPage />} />
         <Route path="/token" element={<SendToken />} />
+        <Route path="/Group" element={<CreateGroup />} />
+
       </Routes>
     </Router>
   );
