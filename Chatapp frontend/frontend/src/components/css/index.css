@@ -372,6 +372,12 @@ a:focus {
   object-fit: cover;
 }
 
+.message-status svg {
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+
 /* Chat item details (name and last message) */
 .chat-details {
   display: flex;
