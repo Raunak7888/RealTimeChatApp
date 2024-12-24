@@ -67,7 +67,7 @@ const ChatList = ({ onChatSelect }) => {
                 className="search-result-item"
                 onClick={() => handleChatSelect(chat)}
               >
-                {chat.name} {chat.group ? "(Group)" : "(User)"}
+                {chat.name}
               </div>
             ))}
           </div>
@@ -86,7 +86,7 @@ const ChatList = ({ onChatSelect }) => {
               onClick={() => handleChatListClick(chat)}
             >
               <span className="chat-name">
-                {chat.name} {chat.group ? "(Group)" : "(User)"}
+                {chat.name} 
               </span>
             </div>
           ))

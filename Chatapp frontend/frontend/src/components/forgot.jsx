@@ -1,12 +1,14 @@
 // src/components/ForgotPasswordPage.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './css/forget.css'; // Create this CSS file for styling if needed
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
@@ -15,6 +17,7 @@ const ForgotPasswordPage = () => {
       
       if (response.status === 200) {
         setMessage('Check your email for a password reset link!');
+        navigate('/reset');
       }
     } catch (err) {
       setError('Error sending reset link. Please try again.');

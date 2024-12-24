@@ -1,6 +1,7 @@
 // src/components/ResetPasswordPage.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './css/reset.css';
 
 const ResetPasswordPage = () => {
@@ -9,6 +10,7 @@ const ResetPasswordPage = () => {
   const [passwordResetCode, setPasswordResetCode] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ const ResetPasswordPage = () => {
         setEmail('');
         setNewPassword('');
         setPasswordResetCode('');
+        navigate('/login');
       }
     } catch (err) {
       setError('Password reset failed. Please try again.');

@@ -1,6 +1,7 @@
 // src/components/SignupPage.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 import './css/signup.css';
 
 const SignupPage = () => {
@@ -9,6 +10,7 @@ const SignupPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ const SignupPage = () => {
         setEmail('');
         setUsername('');
         setPassword('');
+        navigate('/verify')
       }
     } catch (err) {
       setError('Signup failed. Please try again.');
@@ -69,6 +72,7 @@ const SignupPage = () => {
         {success && <p className="success">{success}</p>}
         <button type="submit">Sign Up</button>
       </form>
+      <p className='link'>Already have an account? <a href="/login">Login here</a></p>
     </div>
   );
 };

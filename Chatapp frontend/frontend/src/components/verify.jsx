@@ -1,6 +1,7 @@
 // src/components/VerifyPage.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './css/verify.css'; // Create this CSS file for styling if needed
 
 const VerifyPage = () => {
@@ -8,7 +9,7 @@ const VerifyPage = () => {
   const [verificationCode, setVerificationCode] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
-
+  const navigate = useNavigate();
   const handleVerify = async (e) => {
     e.preventDefault();
     try {
@@ -20,6 +21,7 @@ const VerifyPage = () => {
       if (response.status === 200) {
         setMessage('Verification successful! You can now Login to Your Account.');
         // Redirect to reset password page or show success message
+        navigate('/login');
       }
     } catch (err) {
       setError('Invalid verification code. Please try again.');

@@ -64,6 +64,8 @@ const LoginPage = () => {
         {error && <p className="error">{error}</p>}
         <button type="submit" disabled={loading}>{loading ? 'Logging in...' : 'Login'}</button>
       </form>
+      <p className='link'>Don't have an account? <a href="/signup">Sign up here</a></p>
+      <p className='link'>Forgot your password? <a href="/forgot">Reset here</a></p>
     </div>
   );
 };

@@ -109,15 +109,15 @@ const ChatWindow = ({ recipientId, recipientUsername, isGroup }) => {
 
     // Cleanup on recipient or user change or component unmount
     return () => {
-      if (messageSubscriptionRef.current) {
-        messageSubscriptionRef.current.unsubscribe();
-      }
-      if (statusSubscriptionRef.current) {
-        statusSubscriptionRef.current.unsubscribe();
-      }
-      if (senderSubscriptionRef.current) {
-        senderSubscriptionRef.current.unsubscribe();
-      }
+      // if (messageSubscriptionRef.current) {
+      //   messageSubscriptionRef.current.unsubscribe();
+      // }
+      // if (statusSubscriptionRef.current) {
+      //   statusSubscriptionRef.current.unsubscribe();
+      // }
+      // if (senderSubscriptionRef.current) {
+      //   senderSubscriptionRef.current.unsubscribe();
+      // }
     };
   }, [recipientId, currentUser, isGroup]); // Ensure this re-runs on dependency change
 

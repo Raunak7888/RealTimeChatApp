@@ -137,7 +137,10 @@ a:focus {
   border-right: 1px solid #333d47;
   overflow-y: auto;
 }
-
+.createGroupButton{
+  padding: 0px;
+  padding-top: 2px;
+}
 /* Chat area where messages are displayed */
 .chat-area {
   width: 100%; /* Takes up remaining width */
@@ -147,7 +150,88 @@ a:focus {
   flex-direction: column;
   position: relative;
 }
+.create-group-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
 
+.create-group-form {
+  margin-bottom: 10px;
+}
+
+.create-group-input {
+  width: 100%;
+  padding: 8px;
+}
+
+.search-results2 {
+  border: 1px solid #ccc;
+  margin: 0px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.search-result-item2 {
+  padding: 5px;
+  cursor: pointer;
+  margin: 0px;
+  border-bottom: 1px solid #eee;
+  background-color: black !important;
+}
+
+.selected-members-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.selected-member-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.link{
+  font-size: 14px;
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+
+.remove-member-button {
+  height: 20px;
+  width: 20px;
+  color: red;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.remove-member-button:hover {
+  color: red; /* Keep the color red on hover */
+  background: none; /* Ensure no background color appears */
+  text-decoration: none; /* Prevent any underline or decoration */
+}
+
+.create-group-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.response-message {
+  margin-top: 20px;
+  color: green;
+}
+
+.error-message {
+  margin-top: 20px;
+  color: red;
+}
 .chat-header{
   background-color: #202c33;
   padding-left: 3%;

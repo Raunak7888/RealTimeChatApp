@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ChatList from "./ChatList";
 import ChatWindow from "./ChatWindow";
 import WebSocketService from "./WebSocketService";
+import ChatUtil from "./ChatUtil";
 
 const Ok = () => {
   const [selectedUserId, setSelectedUserId] = useState(null);
@@ -49,6 +50,9 @@ const Ok = () => {
         ) : (
           <div className="no-chat">Select a user to start chatting</div>
         )}
+      </div>
+      <div className="chat-help-utils">
+        <ChatUtil />
       </div>
     </div>
   );
