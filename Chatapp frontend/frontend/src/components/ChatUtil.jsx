@@ -29,6 +29,10 @@ const ChatUtil = () => {
     }
   };
 
+  const handleLogoutClick = () => {
+    navigate("/logout");
+  }
+
   return (
     <div>
       {loading ? (
@@ -61,6 +65,22 @@ const ChatUtil = () => {
           </svg>
         </button>
       )}
+      <button
+          onClick={handleLogoutClick}
+          style={{
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            color: "#fff",
+            border: "none",
+            cursor: "pointer",
+            margin: "10px",
+            padding: "0px",
+            backgroundColor: "#007bff",
+          }}
+          >
+            <svg className="logoutButton" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg>
+          </button>
     </div>
   );
 };

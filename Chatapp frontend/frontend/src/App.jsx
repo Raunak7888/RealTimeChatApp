@@ -9,18 +9,21 @@ import ResetPage from './components/reset';
 import './components/css/app.css';
 import Ok from './components/ok';
 import CreateGroup from './components/CreateGroup';
+import Logout from './components/logout';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/chat" element={<Ok/>} />
         <Route path="/forgot" element={<ForgotPasswordPage />} />
         <Route path="/verify" element={<VerifyPage />} />
         <Route path="/reset" element={<ResetPage />} />
         <Route path="/Group" element={<CreateGroup />} />
+        <Route path="/logout" element={<Logout/>}/>
+
       </Routes>
     </Router>
   );

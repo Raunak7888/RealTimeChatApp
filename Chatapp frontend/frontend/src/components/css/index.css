@@ -11,7 +11,7 @@
 
 /* Basic body styling */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: #111b21; /* Main background color for the app */
   color: #e9edef; /* Default text color */
   line-height: 1.6;
@@ -19,7 +19,6 @@ body {
   padding: 0;
   overflow: hidden;
 }
-
 
 /* Global link styles */
 a {
@@ -58,12 +57,17 @@ img {
 }
 
 /* Heading and paragraph margins */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #e9edef;
   margin-bottom: 0.5em;
 }
 
-input{
+input {
   background-color: #111b21;
   color: white !important;
 }
@@ -137,9 +141,14 @@ a:focus {
   border-right: 1px solid #333d47;
   overflow-y: auto;
 }
-.createGroupButton{
+.createGroupButton {
   padding: 0px;
   padding-top: 2px;
+}
+.logoutButton {
+  margin-left: 5px;
+  padding: 0px;
+  margin-top: 4px;
 }
 /* Chat area where messages are displayed */
 .chat-area {
@@ -189,10 +198,9 @@ a:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
-.link{
+.link {
   font-size: 14px;
   margin-top: 13px;
   margin-bottom: 13px;
@@ -232,7 +240,7 @@ a:focus {
   margin-top: 20px;
   color: red;
 }
-.chat-header{
+.chat-header {
   background-color: #202c33;
   padding-left: 3%;
   padding-top: 2%;
@@ -240,16 +248,14 @@ a:focus {
   margin: 0%;
 }
 
-.chat-contact-name{
+.chat-contact-name {
   font-size: 1.5rem;
   color: white;
-
 }
 
-.chat-status{
+.chat-status {
   font-size: 0.7rem;
 }
-
 
 /* Message display area */
 .message-display {
@@ -345,12 +351,12 @@ a:focus {
 /* Chat list container */
 .chat-list {
   flex-grow: 1;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 /* Individual chat item */
 .chat-list-item {
-  padding: 0.75rem 1rem;
+  padding: 10px;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -361,6 +367,46 @@ a:focus {
 
 .chat-list-item:hover {
   background-color: #2a3942;
+}
+
+.logout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.confirmation-dialog {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 13px 14px 20px 18px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.confirmation-dialog p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.confirm-button {
+  background-color: #28a745;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+  color: #fff;
 }
 
 /* Chat item avatar */
@@ -461,7 +507,6 @@ a:focus {
   vertical-align: middle;
 }
 
-
 /* Chat item details (name and last message) */
 .chat-details {
   display: flex;
@@ -469,26 +514,24 @@ a:focus {
   width: 100%;
 }
 
-.message-sent, .message-received{
+.message-sent,
+.message-received {
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
-  display:inline-block;
+  display: inline-block;
 }
 
-.message-sent{
+.message-sent {
   background-color: #4caf50;
   float: right;
 }
 
-
-
-.message-received{
+.message-received {
   background-color: #343737;
   float: left;
 }
-
 
 /* Chat name */
 .chat-name {
